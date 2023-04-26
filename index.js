@@ -23,13 +23,13 @@ function repetirString(string, number) {
     return string.repeat(number);
 }
 
-function esPrimo(number) {
-    for(let i = (number - 1); i < number; i--) {
-        if(number % i == 0) {
-            return true;
+function esPrimo(num) {
+    for(let i = (num - 1); i > 1; i--) {
+        if(num % i == 0) {
+            return false;
         }
     }
-    return false;
+    return true;
 }
 
 function ordenarArray(array) {
@@ -71,20 +71,29 @@ function arrayMapi(array, funcion) {
     return result;
 }
 
-function eliminarDuplicados(array) {
-    let currentNumber = null;
+// function eliminarDuplicados(array) {
+//     let currentNumber = null;
 
-    for(let i = 0; i < array.length; i++) {
-        currentNumber = array[i];
+//     for(let i = 0; i < array.length; i++) {
+//         currentNumber = array[i];
 
-        for(let a = 0; a < array.length; a++) {
-            if(currentNumber === array[a]) {
-                array.splice(a, 1);
-            }
-        }
-    }
+//         for(let a = 0; a < array.length; a++) {
+//             if(currentNumber === array[a]) {
+//                 array.splice(a, 1);
+//             }
+//         }
+//     }
 
-    return array;
+//     return array;
+// }
+
+function eliminarDuplicados (array){
+    let newArray=array.filter((element, index) => {
+        if (array.indexOf(element) === index){
+            return element;
+        };
+    });
+    return newArray;
 }
 
 var arrayNumerosNeg = [0, -1, -2, -3, -4, -5, -6, -7, -8, -9];
